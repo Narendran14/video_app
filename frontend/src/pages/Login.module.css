@@ -1,0 +1,165 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 28rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 1rem;
+  box-shadow: var(--card-shadow);
+  padding: 2rem;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text-color);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--input-border);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: border-color 0.15s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--input-focus);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+.passwordContainer {
+  position: relative;
+}
+
+.togglePassword {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: #6b7280;
+}
+
+.togglePassword:hover {
+  color: var(--text-color);
+}
+
+.error {
+  background-color: rgba(220, 38, 38, 0.1);
+  color: var(--error-color);
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: var(--button-bg);
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.button:hover {
+  background-color: var(--button-hover);
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.footer {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--text-color);
+}
+
+.link {
+  color: var(--primary-color);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.link:hover {
+  color: var(--primary-hover);
+}

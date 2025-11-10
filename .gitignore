@@ -1,0 +1,15 @@
+# Node modules
+node_modules
+
+# Environment
+.env
+
+# Build output
+dist
+
+# System files
+.DS_Store
+.vscode
+
+# Uploads (large files)
+uploads
