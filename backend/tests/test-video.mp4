@@ -1,0 +1,2 @@
+This is a small placeholder file used by tests to simulate an mp4 upload.
+It does not contain real mp4 binary data but is sufficient for upload/stream tests in CI.

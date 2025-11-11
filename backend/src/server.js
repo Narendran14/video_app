@@ -16,6 +16,27 @@ const io = new Server(server, {
     credentials: true
   }
 });
+// Make sure uploads directory exists
+const fs = require('fs');
+const path = require('path');
+const uploadsDir = path.join(__dirname, '..', '..', 'uploads');
+if (!fs.existsSync(uploadsDir)) {
+  fs.mkdirSync(uploadsDir, { recursive: true });
+  console.log('Created uploads directory at', uploadsDir);
+}
+
+// Expose io through the express app so controllers can access it
+app.set('io', io);
+
+// Simple socket connection handler: clients can join rooms (e.g., user_<id>)
+io.on('connection', (socket) => {
+  console.log('Socket connected:', socket.id);
+  socket.on('join', (room) => {
+    socket.join(room);
+    console.log(`Socket ${socket.id} joined room ${room}`);
+  });
+  socket.on('disconnect', () => console.log('Socket disconnected:', socket.id));
+});
 
 app.use(cors({
   origin: 'http://localhost:3000',

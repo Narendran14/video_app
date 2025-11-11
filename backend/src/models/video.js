@@ -15,4 +15,22 @@ const videoSchema = new mongoose.Schema({
   updatedAt: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model("Video", videoSchema);
+// Index for queries by uploader and recent uploads
+videoSchema.index({ uploadedBy: 1, createdAt: -1 });
+
+// Transform output to hide internal fields (path) and __v, expose id
+function sanitizeVideo(doc, ret) {
+  if (ret) {
+    ret.id = ret._id;
+    delete ret._id;
+    delete ret.__v;
+    // Do not expose server file system paths in API responses
+    if (ret.path) delete ret.path;
+  }
+  return ret;
+}
+
+videoSchema.set('toJSON', { transform: sanitizeVideo });
+videoSchema.set('toObject', { transform: sanitizeVideo });
+
+module.exports = mongoose.models.Video || mongoose.model('Video', videoSchema);

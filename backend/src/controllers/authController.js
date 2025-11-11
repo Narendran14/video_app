@@ -29,7 +29,17 @@ exports.registerUser = async (req, res) => {
       tenantId,
     });
 
-    res.status(201).json({ message: 'User registered successfully', user });
+    // Return only non-sensitive user fields
+    res.status(201).json({
+      message: 'User registered successfully',
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+        tenantId: user.tenantId,
+      },
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Server error during registration' });
