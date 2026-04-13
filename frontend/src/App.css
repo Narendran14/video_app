@@ -1,0 +1,446 @@
+/* RESET */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: #000;
+  color: #fff;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+.navbar h2 {
+  color: red;
+  font-weight: bold;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.role {
+  font-size: 14px;
+  color: #ccc;
+}
+
+/* NAV BUTTONS */
+.nav-btn {
+  background: #f33c18;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  margin-left: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-top: 0;
+}
+
+.nav-btn:hover {
+  background: #ff1a1a;
+}
+
+/* BACK BUTTON */
+.back-btn {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  margin-bottom: 5px;
+  margin-right: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  background: #555;
+}
+
+/* LOGOUT BUTTON */
+.nav-right button {
+  background: red;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-right: 30px;
+}
+
+.nav-right button:hover {
+  background: #ff3333;
+}
+
+/* MAIN CONTAINER */
+.container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;   /* 🔥 keeps everything at TOP */
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* VIDEO GRID */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding-top: 60px;
+}
+
+/* CARD */
+.card {
+  background: #111;
+  border-radius: 12px;
+  overflow: hidden;
+  padding-bottom: 10px;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.card::after {
+  content: "▶";
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 30px;
+  color: white;
+  opacity: 0.7;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+/* VIDEO */
+.card video {
+  width: 100%;
+  height: 200px;          /* FIX HEIGHT */
+  object-fit: cover;      /* KEEP RATIO NICE */
+  border-bottom: 1px solid #222;
+  border-radius: 8px 8px 0 0;
+}
+
+/* INFO */
+.info {
+  padding: 10px;
+}
+
+.info p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+/* BUTTONS */
+.edit-btn {
+  background: #1e5eff;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin: 8px 10px 5px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.edit-btn:hover {
+  background: #3a75ff;
+}
+
+.delete-btn {
+  background: red;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin: 5px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.delete-btn:hover {
+  background: #ff3333;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* AUTH PAGE (LOGIN / REGISTER) */
+.auth-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: black;
+}
+
+.auth-box {
+  background: #111;
+  padding: 30px;
+  border-radius: 12px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.7);
+}
+
+.auth-box h2 {
+  text-align: center;
+  color: white;
+}
+
+.auth-box input,
+.auth-box select {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+}
+
+.auth-box button {
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: red;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.auth-box button:hover {
+  background: #ff3333;
+}
+
+.auth-box p {
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+  color: #00bfff;
+}
+
+.blur-video {
+  transition: 0.3s;
+}
+
+.flagged {
+  filter: blur(8px) brightness(0.6);
+}
+
+.flagged:hover {
+  filter: blur(0) brightness(1);
+}
+
+/* 🔥 PROGRESS BAR */
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: #333;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #00c6ff;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+.fade-out {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.3s ease;
+}
+
+/* 🔥 SKELETON LOADER */
+.skeleton {
+  height: 200px;
+  background: linear-gradient(
+    90deg,
+    #1e1e1e 25%,
+    #2a2a2a 50%,
+    #1e1e1e 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 10px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* FADE OUT */
+.fade-out {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.3s ease;
+}
+
+/* 🎬 NETFLIX STYLE GRID ANIMATION */
+
+/* CARD BASE */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+/* 🔥 HOVER ZOOM */
+.card:hover {
+  transform: scale(1.08);
+  z-index: 10;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+}
+
+/* VIDEO SMOOTH SCALE */
+.card video {
+  width: 100%;
+  transition: transform 0.4s ease;
+}
+
+.card:hover video {
+  transform: scale(1.1);
+}
+
+/* 🎞 ENTRY ANIMATION */
+.card {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.5s ease forwards;
+}
+
+/* KEYFRAMES */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MODAL BACKGROUND */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+/* MODAL BOX */
+.modal-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: black;
+  padding: 0;
+  border-radius: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* BUTTONS */
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.modal-buttons button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* CLOSE BUTTON */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 22px;
+  cursor: pointer;
+  z-index: 20000;
+}
+
+/* 🔥 STATUS BADGES */
+.badge {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 6px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+/* ✅ SAFE */
+.badge-safe {
+  background: #0f5132;
+  color: #00ffae;
+  box-shadow: 0 0 8px #00ffae, 0 0 15px #00ffae;
+}
+
+/* ⚠ FLAGGED */
+.badge-danger {
+  background: #5c0000;
+  color: #ff4d4d;
+  box-shadow: 0 0 8px #ff4d4d, 0 0 15px #ff4d4d;
+  animation: pulse 1.5s infinite;
+}
+
+/* 🔁 PULSE ANIMATION */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 5px #ff4d4d;
+  }
+  50% {
+    box-shadow: 0 0 20px #ff0000;
+  }
+  100% {
+    box-shadow: 0 0 5px #ff4d4d;
+  }
+}
